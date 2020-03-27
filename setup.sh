@@ -1,12 +1,11 @@
 #!bin/sh
 
-if [ ! -d ~/.zsh ]; then
-  mkdir ~/.zsh
-fi
+# make dir
 if [ ! -d ~/.config ]; then
   mkdir ~/.config
 fi
 
+# check zsh existence
 if type "zsh" > /dev/null 2>&1; then
     echo "zsh already exist! start setup."
 else
@@ -21,9 +20,28 @@ if [ ! -d ~/.oh-my-zsh ]; then
   rm install.sh
 fi
 
+# git config
+FLG_NAME=false
+FLG_MAIL=false
+
+while getopts n:m: OPT
+do
+  case $OPT in
+    n ) FLG_NAME=true ; VALUE_NAME="$OPTARG" ;;
+    m ) FLG_MAIL=true ; VALUE_MAIL="$OPTARG" ;;
+    * ) exit1 ;;
+  esac
+done
+
+if $FLG_NAME ; then
+  if $FLG_MAIL ; then
+    sed -e "s/GITNAME/$VALUE_NAME/g" -e "s/GITMAIL/$VALUE_MAIL/g" ~/dotfiles/git/.gitconfig_user > ~/dotfiles/git/.gitconfig
+  fi
+fi
+
 # make shimbolic link
 ln -sf ~/dotfiles/nvim ~/.config/
-ln -sf ~/dotfiles/.gitconfig ~/.gitconfig
+ln -sf ~/dotfiles/git/.gitconfig ~/.gitconfig
 ln -sf ~/dotfiles/.gitignore_global ~/.gitignore_global
 ln -sf ~/dotfiles/zsh/.zshrc ~/.zshrc
 ln -sf ~/dotfiles/zsh/.zshenv ~/.zshenv
@@ -67,7 +85,7 @@ else
     sudo apt-get update
     sudo apt-get install neovim
   else
-    echo "Your platform ($(uname -a)) is not supported."
+    echo "You must install neovim manually."
   fi
 fi
 
