@@ -1,0 +1,5 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =3
+let g:netrw_dirhist_1='/Users/Keita/work/pro/demo_train_leveldb'
+let g:netrw_dirhist_2='/Users/Keita/work/rao'
+let g:netrw_dirhist_3='/Users/Keita/Desktop/thesis_template'

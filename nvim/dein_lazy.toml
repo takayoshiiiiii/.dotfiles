@@ -1,0 +1,66 @@
+[[plugins]]
+repo = 'Shougo/deoplete.nvim'
+depends = 'context_filetype.vim'
+if = "has('nvim')"
+on_i = 1
+hook_source = '''
+  source ~/.config/nvim/plugins/deoplete.rc.vim
+'''
+
+[[plugins]] # pythonの補完
+repo = 'zchee/deoplete-jedi'
+on_i = 1
+on_ft = 'python'
+[[plugins]] #neosnippet
+repo = 'Shougo/neosnippet-snippets'
+
+[[plugins]]
+repo = 'Shougo/neosnippet.vim'
+hook_source = '''
+  source ~/.config/nvim/plugins/neosnippet.rc.vim
+'''
+on_i  = 1
+depends = ['neosnippet-snippets', 'context_filetype.vim']
+
+
+[[plugins]]
+repo = 'fatih/vim-go'
+on_ft = ['go']
+
+[[plugins]]
+repo = 'rcmdnk/vim-markdown'
+on_ft = ['md', 'markdown']
+
+[[plugins]] # toml syntax
+repo = 'cespare/vim-toml'
+on_ft = ['toml']
+
+[[plugins]]# nvim-r plugins
+repo= 'jalvesaq/Nvim-R'
+on_ft = ['rmd','r']
+hook_source = '''
+  source ~/.config/nvim/plugins/Nvim-R.rc.vim
+'''
+
+[[plugins]]
+repo= 'roxma/nvim-completion-manager'
+on_ft = ['rmd','r']
+
+[[plugins]] #R language completion
+repo= 'gaalcaras/ncm-R'
+on_ft = ['rmd','r']
+
+[[plugins]]
+repo='vim-pandoc/vim-rmarkdown'
+on_ft = ['rmd']
+hook_source = '''
+  source ~/.config/nvim/plugins/rmarkdown.rc.vim
+'''
+
+[[plugins]] # latexの補完
+repo = 'lervag/vimtex'
+on_ft = ['tex']
+hook_source = '''
+  source ~/.config/nvim/plugins/vimtex.rc.vim
+'''
+

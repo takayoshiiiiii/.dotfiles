@@ -1,0 +1,24 @@
+{
+    "segments": [
+        "virtual_env",
+        "aws_profile",
+        "ssh",
+        "cwd",
+        "git",
+        "git_stash",
+        "jobs",
+        "read_only",
+        "newline",
+        "set_term_title",
+        "svn",
+        "time",
+        "exit_code"
+    ],
+    "cwd": {
+        "max_depth": 4,
+        "max_dir_size": 10,
+        "full_cwd": 1
+    },
+    "mode": "patched",
+    "theme": "~/.config/powerline-shell/original_color.py"
+}
