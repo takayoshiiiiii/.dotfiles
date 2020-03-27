@@ -35,18 +35,18 @@ done
 
 if $FLG_NAME ; then
   if $FLG_MAIL ; then
-    sed -e "s/GITNAME/$VALUE_NAME/g" -e "s/GITMAIL/$VALUE_MAIL/g" ~/dotfiles/git/.gitconfig_user > ~/dotfiles/git/.gitconfig
+    sed -e "s/GITNAME/$VALUE_NAME/g" -e "s/GITMAIL/$VALUE_MAIL/g" ~/.dotfiles/git/.gitconfig_user > ~/.dotfiles/git/.gitconfig
   fi
 fi
 
 # make shimbolic link
-ln -sf ~/dotfiles/nvim ~/.config/
-ln -sf ~/dotfiles/git/.gitconfig ~/.gitconfig
-ln -sf ~/dotfiles/.gitignore_global ~/.gitignore_global
-ln -sf ~/dotfiles/zsh/.zshrc ~/.zshrc
-ln -sf ~/dotfiles/zsh/.zshenv ~/.zshenv
-ln -sf ~/dotfiles/.tmux.conf ~/.tmux.conf
-ln -sf ~/dotfiles/powerline-shell/ ~/.config/
+ln -sf ~/.dotfiles/nvim ~/.config/
+ln -sf ~/.dotfiles/git/.gitconfig ~/.gitconfig
+ln -sf ~/.dotfiles/git/.gitignore_global ~/.gitignore_global
+ln -sf ~/.dotfiles/zsh/.zshrc ~/.zshrc
+ln -sf ~/.dotfiles/zsh/.zshenv ~/.zshenv
+ln -sf ~/.dotfiles/.tmux.conf ~/.tmux.conf
+ln -sf ~/.dotfiles/powerline-shell/ ~/.config/
 
 # clone zsh plugins into oh-my-zsh if not
 if [ ! -d ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting ]; then
@@ -58,11 +58,11 @@ if [ ! -d ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions ]; then
 fi
 
 if [ ! -d ~/.oh-my-zsh/custom/plugins/zsh-history-substring-search ]; then
-  git clone https://github.com/zsh-users/zsh-history-substring-search ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-history-substring-search
+  git clone https://github.com/zsh-users/zsh-history-substring-search ~/.oh-my-zsh/custom/plugins/zsh-history-substring-search
 fi
 
 if [ ! -d ~/.oh-my-zsh/custom/plugins/zsh-completions ]; then
-  git clone https://github.com/zsh-users/zsh-completions ${ZSH_CUSTOM:=~/.oh-my-zsh/custom}/plugins/zsh-completions
+  git clone https://github.com/zsh-users/zsh-completions ~/.oh-my-zsh/custom/plugins/zsh-completions
 fi
 
 # installing pyenv
